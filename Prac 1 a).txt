@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main(){
+    
+    int arr[7],n,i=0,index=0;
+    printf("Enter 10 elements to add in array : \n");
+    for(i;i< 10;i++){
+        scanf("%d",&arr[i]);
+    }
+    printf("Enter a value you want to share in array : ");
+    scanf("%d",&n);
+    
+    for(i=0;i< 10;i++){
+        if(arr[i]==n){
+            index = i+1;
+        }
+    }
+    
+    if(index){
+        printf("Element Found in Array at %d.",index);
+    }else{
+        printf("Element Not Found in Array");
+    }
+    
+}

@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+struct node {
+    int data;
+    struct node * next;
+};
+
+void insertAtEnd (struct node ** head){
+    struct node * temp = *head;
+    while (temp->next != NULL){
+        temp = temp -> next;
+    }
+    struct node * newnode = (struct node*)malloc(sizeof(struct node));
+    printf("\nEnter value to add in node :\n");
+    scanf("%d",&newnode -> data);
+    newnode -> next = NULL;
+    printf("enterd a node at the end.");
+    
+    temp -> next = newnode;
+}
+
+int main() {
+    struct node *p,*q,*head, *temp;
+    char ch;
+ p = (struct node*)malloc(sizeof(struct node));
+   
+ head = NULL;
+   
+   printf("enter the data to insert in first node :\n");
+   scanf("%d",&p-> data);
+   head = p;     
+   
+   do{
+q = (struct node*)malloc(sizeof(struct node));
+       printf("enter the data in node : \n");
+       scanf("%d",&q->data);
+       q-> next = NULL;
+       p-> next = q;
+       p=q;
+       printf("Enter 'y' to add another node or any other key to stop: ");
+        scanf(" %c", &ch);
+   }while(ch=='y');
+   
+   printf("\n now we are going to insert element at the end.");
+   insertAtEnd(&head);
+   temp = head;
+   printf("\n printing the Linked list : \n");
+   while(temp != NULL){
+       printf(" %d ->",temp -> data);
+       temp = temp -> next;
+   }
+   printf("NULL");
+    return 0;
+}
